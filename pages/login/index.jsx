@@ -20,13 +20,7 @@ const Login = (props) => {
   const [activeTab, setActive] = useState(null);
 
   const handleTab = (tab) => {
-    // const newData = tabs.map((e) => {
-    //   if (e.current) e.current = false;
-    //   if (e.id === tab.id) e.current = true;
-    //   return e;
-    // });
     setActive(tab);
-    // setTab(newData);
   };
 
   useEffect(() => {
