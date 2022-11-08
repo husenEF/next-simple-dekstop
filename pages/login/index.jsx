@@ -5,6 +5,7 @@ import { formatDate } from '../../src/utils/format';
 import classNames from '../../src/utils/classNames';
 import LoginForm from '../../src/pages/auth/Login';
 import RegistrationForm from '../../src/pages/auth/Registration';
+import Alert from '../../src/components/Alert';
 
 const Login = (props) => {
   const [tabs] = useState([
@@ -28,7 +29,7 @@ const Login = (props) => {
       setActive(tabs[0]);
     }
   }, [activeTab, tabs]);
-  
+
   return (
     <div className="flex h-screen">
       <div className="bg-bg-primary flex-1 max-w-xl p-12">
@@ -44,6 +45,7 @@ const Login = (props) => {
             is a secure platform that makes it easy to buy, sell, and store
             cryptocurrency like Bitcoin, Ethereum, and more. Based in the USA
           </p>
+          <Alert className="mr-2" />
         </div>
       </div>
       <div className="bg-bg-secondary flex-auto p-12">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 
+import { logger } from '../../../utils/logger';
 import { useRegister } from '../../../hooks/useRegisters';
 import countryCode from '../../../data/countryCode';
 
@@ -22,6 +23,7 @@ const useRegistationModule = () => {
     password: '',
     latlong: '-7.8011945,110.364917',
     device_type: 2,
+    device_token: null,
   });
 
   const [isShowPassword, togglePassword] = useState(false);
@@ -41,7 +43,7 @@ const useRegistationModule = () => {
   const handleChange = (key = 'phone', value = '') => {
     setForm({ ...form, [key]: value });
   };
-
+  logger.info({ saveMutation });
   return {
     countryList,
     selected,

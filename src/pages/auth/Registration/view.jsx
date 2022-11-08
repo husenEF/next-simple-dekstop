@@ -11,7 +11,6 @@ import InputGroup from '../../../components/Input/InputGroup';
 const RegistrationView = ({ data, event, onSave }) => {
   return (
     <>
-      <pre>{JSON.stringify(data?.form)}</pre>
       <div className="register-form border border-basic-stroke rounded-lg p-8">
         <h2 className="text-basic-primary text-lg font-poppins font-semibold">
           Create New Account
