@@ -7,7 +7,7 @@ import LoginForm from '../../src/pages/auth/Login';
 import RegistrationForm from '../../src/pages/auth/Registration';
 import Alert from '../../src/components/Alert';
 
-const Login = (props) => {
+const AuthPage = (props) => {
   const [tabs] = useState([
     {
       name: 'Login',
@@ -100,4 +100,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default AuthPage;
