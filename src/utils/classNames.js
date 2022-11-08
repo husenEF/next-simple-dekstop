@@ -1,3 +1,7 @@
+import { logger } from './logger';
+
 export default function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+  const b = classes.filter(Boolean).join(' ');
+  console.log({ b });
+  return b;
 }
