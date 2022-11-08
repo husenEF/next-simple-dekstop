@@ -4,7 +4,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     fontFamily: {
@@ -29,6 +29,10 @@ module.exports = {
         accent: {
           primary: '#5C7AE5',
           secondary: '#563EEE',
+        },
+        alert: {
+          success: '#5AC571',
+          info: '#22CEF4',
         },
       },
     },

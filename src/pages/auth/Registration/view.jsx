@@ -1,28 +1,14 @@
-import { useState } from 'react';
 import {
   EyeSlashIcon,
   EyeIcon,
   CloudArrowDownIcon,
 } from '@heroicons/react/20/solid';
 
-import AutoComplete from '../../components/Select/AutoComplete';
-import Input from '../../components/Input/input';
-import InputGroup from '../../components/Input/InputGroup';
-import countryCode from '../../data/countryCode';
+import AutoComplete from '../../../components/Select/AutoComplete';
+import Input from '../../../components/Input/input';
+import InputGroup from '../../../components/Input/InputGroup';
 
-const Registration = () => {
-  const countryList = countryCode.map((e) => {
-    const newData = { ...e };
-    newData.name = `${newData.name} (${newData.dial_code})`;
-    newData.id = e.code;
-    return newData;
-  });
-  const [selected, setSelected] = useState(
-    countryList.find((e) => e.code === 'ID'),
-  );
-
-  const [isShowPassword, togglePassword] = useState(false);
-
+const RegistrationView = ({ data, event, onSave }) => {
   return (
     <>
       <div className="register-form border border-basic-stroke rounded-lg p-8">
@@ -39,44 +25,54 @@ const Registration = () => {
           <label class="block">
             <span class="text-basic-primary font-[13px]">Select Country</span>
             <AutoComplete
-              data={countryList}
-              value={selected}
-              onChange={setSelected}
+              data={data?.countryList}
+              value={data?.selected}
+              onChange={event?.handleSelect}
             />
           </label>
           <label className="block">
             <span class="text-basic-primary font-[13px]">Phone Number</span>
-            <Input type="tel" />
+            <Input
+              type="tel"
+              onChange={(e) => event?.handleChange('phone', e.target.value)}
+              value={data?.form?.phone}
+            />
           </label>
           <label className="block">
             <span class="text-basic-primary font-[13px]">Password</span>
             <InputGroup
+              onChange={(e) => event?.handleChange('password', e.target.value)}
+              value={data?.form?.password}
               icon={
-                <button onClick={() => togglePassword(!isShowPassword)}>
-                  {isShowPassword ? (
+                <button
+                  onClick={() => event?.togglePassword(!data?.isShowPassword)}>
+                  {data?.isShowPassword ? (
                     <EyeIcon className="h-5 w-5 text-accent-primary" />
                   ) : (
                     <EyeSlashIcon className="h-5 w-5 text-accent-primary" />
                   )}
                 </button>
               }
-              type={isShowPassword ? 'text' : 'password'}
+              type={data?.isShowPassword ? 'text' : 'password'}
             />
           </label>
         </div>
       </div>
       <div className="link mt-8">
-        <a href="" className='flex flex-row text-accent-secondary text-lg'>
-          <CloudArrowDownIcon className="h-6 w-6 text-accent-secondary mr-2" /> Terms and conditions
+        <a href="" className="flex flex-row text-accent-secondary text-lg">
+          <CloudArrowDownIcon className="h-6 w-6 text-accent-secondary mr-2" />{' '}
+          Terms and conditions
         </a>
       </div>
       <div className="flex mt-8">
         <button
+          onClick={event?.handleReset}
           className="rounded-md border-basic-stroke border px-8 py-2 text-basic-primary"
           type="reset">
           Reset
         </button>
         <button
+          onClick={() => onSave(data?.form)}
           className="rounded-md ml-3 bg-basic-primary border-basic-primary border px-8 py-2 text-bg-primary"
           type="button">
           Register
@@ -86,4 +82,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default RegistrationView;
