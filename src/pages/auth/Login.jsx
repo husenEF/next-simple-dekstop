@@ -9,9 +9,9 @@ const Login = () => {
   return (
     <>
       <div className="login-form border border-basic-stroke rounded-lg p-8">
-        <h1 className="text-basic-primary text-lg font-poppins font-semibold">
+        <h2 className="text-basic-primary text-lg font-poppins font-semibold">
           Login Account
-        </h1>
+        </h2>
         <div class="grid grid-cols-1 gap-6 mt-8">
           <label class="block">
             <span class="text-basic-primary font-[13px]">Phone Number</span>
