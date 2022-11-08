@@ -1,10 +1,12 @@
 import Alert from '../../../src/components/Alert';
 import Logo from '../../../src/components/Icons/Logo';
+import { useOtp } from '../../../src/hooks/useRegisters';
 import OtpForm from '../../../src/pages/auth/Otp';
 
 import { formatDate } from '../../../src/utils/format';
 
 const OtpPage = () => {
+  const { isError, error } = useOtp();
   return (
     <div className="flex h-screen">
       <div className="bg-bg-primary flex-1 p-12">
