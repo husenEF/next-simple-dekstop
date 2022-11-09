@@ -20,7 +20,7 @@ const Login = () => {
           <label className="block">
             <span class="text-basic-primary font-[13px]">Password</span>
             <InputGroup
-              icon={
+              rightIcon={
                 <button onClick={() => togglePassword(!isShowPassword)}>
                   {isShowPassword ? (
                     <EyeIcon className="h-5 w-5 text-accent-primary" />

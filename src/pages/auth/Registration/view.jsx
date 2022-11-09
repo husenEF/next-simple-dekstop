@@ -43,7 +43,7 @@ const RegistrationView = ({ data, event, onSave }) => {
             <InputGroup
               onChange={(e) => event?.handleChange('password', e.target.value)}
               value={data?.form?.password}
-              icon={
+              rightIcon={
                 <button
                   onClick={() => event?.togglePassword(!data?.isShowPassword)}>
                   {data?.isShowPassword ? (
