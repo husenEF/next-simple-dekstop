@@ -6,7 +6,7 @@ import Input from '../../../components/Input/input';
 import InputGroup from '../../../components/Input/InputGroup';
 import AutoComplete from '../../../components/Select/AutoComplete';
 
-import style from './information.module.scss';
+import style from '../user.module.scss';
 import classNames from '../../../utils/classNames';
 import TextArea from '../../../components/Input/TextArea';
 
@@ -54,7 +54,7 @@ const InformationTab = () => {
             <Input className="font-poppins" value="Wong Fei Hung" />
           </label>
           <label className="block mb-8">
-            <span class="text-basic-primary font-[13px]">Gender</span>
+            <span class="text-basic-primary font-[13px] mb-2">Gender</span>
             <AutoComplete
               data={genders}
               value={gender}
@@ -62,7 +62,7 @@ const InformationTab = () => {
             />
           </label>
           <label className="block mb-8">
-            <span class="text-basic-primary font-[13px]">Date of Birth</span>
+            <span class="text-basic-primary font-[13px] mb-2">Date of Birth</span>
             <InputGroup
               className={classNames(
                 style.inputDate,
