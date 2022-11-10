@@ -62,7 +62,7 @@ export default function Home() {
       </div>
       <div
         className={classNames(
-          'content relative rounded-lg p-8 z-10 mt-36 bg-bg-primary',
+          'content relative rounded-lg lg:p-8 p-3 z-10 mt-36 bg-bg-primary',
         )}>
         <h1 className="text-[32px] text-basic-primary font-semibold">
           Wong Fei Hung
@@ -71,14 +71,20 @@ export default function Home() {
           Level 1 - #SG769891
         </span>
         <div className="tabs mt-8">
-          <div className="sm:hidden">
+          <div className="sm:hidden mb-4">
             <select
               id="tabs"
               name="tabs"
-              className="block w-full rounded-md border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
+              onChange={(e) => {
+                const tab = tabs.find((t) => e.target.value === t.id);
+                handleTab(tab);
+              }}
+              className="block w-full rounded-md bg-transparent text-basic-primary border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
               defaultValue={activeTab?.name}>
               {tabs.map((tab) => (
-                <option key={tab.name}>{tab.name}</option>
+                <option key={tab.name} value={tab.id} className="bg-bg-thriary">
+                  {tab.name}
+                </option>
               ))}
             </select>
           </div>

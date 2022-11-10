@@ -1,5 +1,6 @@
 import Alert from '../../../src/components/Alert';
 import Logo from '../../../src/components/Icons/Logo';
+import MainLayout from '../../../src/components/Layout';
 import { useOtp } from '../../../src/hooks/useRegisters';
 import OtpForm from '../../../src/pages/auth/Otp';
 
@@ -7,6 +8,15 @@ import { formatDate } from '../../../src/utils/format';
 
 const OtpPage = () => {
   const { isError, error } = useOtp();
+  return (
+    <MainLayout>
+      <h3 className="text-basic-secondary">
+        Today {formatDate(new Date(), 'MMM d, yyyy')}
+      </h3>
+
+      <OtpForm />
+    </MainLayout>
+  );
   return (
     <div className="flex h-screen">
       <div className="bg-bg-primary flex-1 p-12">

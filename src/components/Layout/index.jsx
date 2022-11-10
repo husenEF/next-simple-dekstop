@@ -3,16 +3,19 @@ import { formatDate } from '../../utils/format';
 import Logo from '../Icons/Logo';
 import Alert from '../Alert';
 import classNames from '../../utils/classNames';
+import Link from 'next/link';
 
 const MainLayout = ({ children, rightContainer }) => {
   return (
-    <div className="flex h-screen">
-      <div className="bg-bg-primary flex-1 max-w-xl p-12">
-        <h1 className="text-basic-primary flex">
-          <Logo className="mr-2" />
-          COINPRIVY
+    <div className="flex lg:flex-row flex-col lg:h-screen">
+      <div className="bg-bg-primary lg:p-12 p-3 lg:w-2/6 w-full">
+        <h1 className="">
+          <Link href="/" className="text-basic-primary flex">
+            <Logo className="mr-2" />
+            COINPRIVY
+          </Link>
         </h1>
-        <div className="mt-14 px-7">
+        <div className="mt-14 lg:px-7 px-2" >
           <h2 className="text-basic-primary text-[32px] font-semibold">
             Welcome to{'\r\n'}Coinprivy
           </h2>
@@ -25,7 +28,7 @@ const MainLayout = ({ children, rightContainer }) => {
       </div>
       <div
         className={classNames(
-          'bg-bg-secondary flex-auto p-12',
+          'bg-bg-secondary lg:w-4/6 lg:p-12 p-2 w-full pb-10',
           rightContainer,
         )}>
         {children}

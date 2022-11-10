@@ -1,6 +1,6 @@
 const BoxBorder = ({ children }) => {
   return (
-    <div className="login-form border border-basic-stroke rounded-lg p-8">
+    <div className="border border-basic-stroke rounded-lg lg:p-8 p-4">
       {children}
     </div>
   );

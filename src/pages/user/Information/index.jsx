@@ -9,6 +9,7 @@ import AutoComplete from '../../../components/Select/AutoComplete';
 import style from '../user.module.scss';
 import classNames from '../../../utils/classNames';
 import TextArea from '../../../components/Input/TextArea';
+import BoxBorder from '../../../components/Layout/box';
 
 const genders = [
   {
@@ -28,8 +29,9 @@ const InformationTab = () => {
   const [gender, setGender] = useState(null);
 
   return (
-    <div className="login-form border border-basic-stroke rounded-lg p-8">
-      <div className="flex flex-row mb-8">
+    <BoxBorder>
+      {/* <div className="login-form border border-basic-stroke rounded-lg lg:p-8 p-4"> */}
+      <div className="flex lg:flex-row flex-col mb-8">
         <div className="flex-1">
           <h2 className="text-lg text-basic-primary font-semibold">
             Profile Information
@@ -42,7 +44,7 @@ const InformationTab = () => {
           <PencilIcon className="w-5 h-5 text-accent-primary" />
         </button>
       </div>
-      <div className="grid grid-cols-2 grid-flow-col gap-16">
+      <div className="grid lg:grid-cols-2 lg:grid-flow-col lg:gap-16 gap-1">
         <div className="col-1">
           <h2 className="text-lg text-basic-primary font-semibold mb-3">
             Product Detail
@@ -62,7 +64,9 @@ const InformationTab = () => {
             />
           </label>
           <label className="block mb-8">
-            <span class="text-basic-primary font-[13px] mb-2">Date of Birth</span>
+            <span class="text-basic-primary font-[13px] mb-2">
+              Date of Birth
+            </span>
             <InputGroup
               className={classNames(
                 style.inputDate,
@@ -109,7 +113,8 @@ const InformationTab = () => {
           </label>
         </div>
       </div>
-    </div>
+      {/* </div> */}
+    </BoxBorder>
   );
 };
 export default InformationTab;

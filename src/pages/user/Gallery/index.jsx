@@ -32,7 +32,7 @@ const GalleryTab = () => {
           <PlusIcon className="w-5 h-5 text-accent-primary" />
         </button>
       </div>
-      <div className="gallery grid-cols-3 grid gap-4 relative">
+      <div className="gallery lg:grid-cols-3 grid-cols-2 grid gap-4 relative">
         {photos.map((photo) => (
           <div
             key={photo.id}
