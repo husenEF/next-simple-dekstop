@@ -2,6 +2,7 @@ import {
   CheckCircleIcon,
   XMarkIcon,
   InformationCircleIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/solid';
 import classNames from '../../utils/classNames';
 
@@ -16,6 +17,12 @@ const Alert = ({ className, type, children, onClose, message, title }) => {
     info: (
       <InformationCircleIcon
         className="h-5 w-5 text-alert-info"
+        aria-hidden="true"
+      />
+    ),
+    error: (
+      <ExclamationTriangleIcon
+        className="h-5 w-5 text-red-500"
         aria-hidden="true"
       />
     ),
