@@ -1,9 +1,8 @@
-import { formatDate } from '../../utils/format';
+import Link from 'next/link';
 
 import Logo from '../Icons/Logo';
 import Alert from '../Alert';
 import classNames from '../../utils/classNames';
-import Link from 'next/link';
 
 const MainLayout = ({ children, rightContainer }) => {
   return (
