@@ -37,7 +37,6 @@ export default function Home() {
     const tab = tabs.find((e) => activeTab.id === e.id);
     if ('component' in tab) {
       const { component: Component } = tab;
-      // return <Component />;
       return (
         <Suspense fallback={<span>Loading...</span>}>
           <Component />
@@ -49,6 +48,7 @@ export default function Home() {
     if (activeTab === null) {
       setActiveTab(tabs[0]);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
