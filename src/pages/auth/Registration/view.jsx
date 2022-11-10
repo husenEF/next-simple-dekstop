@@ -23,7 +23,7 @@ const RegistrationView = ({ data, event, onSave }) => {
             Account Detail
           </h2>
           <label class="block">
-            <span class="text-basic-primary font-[13px]">Select Country</span>
+            <span class="text-basic-primary font-[13px] mb-2">Select Country</span>
             <AutoComplete
               data={data?.countryList}
               value={data?.selected}
@@ -31,7 +31,7 @@ const RegistrationView = ({ data, event, onSave }) => {
             />
           </label>
           <label className="block">
-            <span class="text-basic-primary font-[13px]">Phone Number</span>
+            <span class="text-basic-primary font-[13px] mb-2">Phone Number</span>
             <Input
               type="tel"
               onChange={(e) => event?.handleChange('phone', e.target.value)}
@@ -39,11 +39,11 @@ const RegistrationView = ({ data, event, onSave }) => {
             />
           </label>
           <label className="block">
-            <span class="text-basic-primary font-[13px]">Password</span>
+            <span class="text-basic-primary font-[13px] mb-2">Password</span>
             <InputGroup
               onChange={(e) => event?.handleChange('password', e.target.value)}
               value={data?.form?.password}
-              icon={
+              rightIcon={
                 <button
                   onClick={() => event?.togglePassword(!data?.isShowPassword)}>
                   {data?.isShowPassword ? (

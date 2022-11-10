@@ -14,13 +14,13 @@ const Login = () => {
         </h2>
         <div class="grid grid-cols-1 gap-6 mt-8">
           <label class="block">
-            <span class="text-basic-primary font-[13px]">Phone Number</span>
+            <span class="text-basic-primary font-[13px] mb-2">Phone Number</span>
             <Input />
           </label>
           <label className="block">
-            <span class="text-basic-primary font-[13px]">Password</span>
+            <span class="text-basic-primary font-[13px] mb-2">Password</span>
             <InputGroup
-              icon={
+              rightIcon={
                 <button onClick={() => togglePassword(!isShowPassword)}>
                   {isShowPassword ? (
                     <EyeIcon className="h-5 w-5 text-accent-primary" />
