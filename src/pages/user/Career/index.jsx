@@ -7,6 +7,7 @@ import InputGroup from '../../../components/Input/InputGroup';
 import BoxBorder from '../../../components/Layout/box';
 
 import style from '../user.module.scss';
+import { useRef } from 'react';
 
 const companyList = [
   {
@@ -30,6 +31,10 @@ const companyList = [
 ];
 
 const CareerTab = () => {
+  let inputRef = useRef(null);
+  let startRef = useRef(null);
+  let endRef = useRef(null);
+  console.log({ inputRef, startRef });
   return (
     <BoxBorder>
       <div className="flex flex-row mb-8">
@@ -48,18 +53,26 @@ const CareerTab = () => {
       <div className="form">
         <label class="block mb-8">
           <span class="text-basic-primary font-[13px] mb-2">Company Name</span>
-          <Input />
+          <Input ref={(ref) => (inputRef = ref)} name="company name" />
         </label>
         <label className="block mb-8">
           <span class="text-basic-primary font-[13px] mb-2">Start From</span>
           <InputGroup
+            ref={startRef}
             className={classNames(
               style.inputDate,
               'border-0 rounded-none border-b',
+              'focus:border-0 focus:border-b  focus:outline-0',
             )}
             type="date"
+            onClick={() => {
+              startRef.current.showPicker();
+            }}
             leftIcon={
-              <button onClick={() => dateRef?.current?.focus()}>
+              <button
+                onClick={() => {
+                  startRef.current.showPicker();
+                }}>
                 <CalendarDaysIcon className="h-5 w-5 text-accent-primary" />
               </button>
             }
@@ -68,13 +81,18 @@ const CareerTab = () => {
         <label className="block mb-8">
           <span class="text-basic-primary font-[13px] mb-2">Ending In</span>
           <InputGroup
+            ref={endRef}
             className={classNames(
               style.inputDate,
               'border-0 rounded-none border-b',
+              'focus:border-0 focus:border-b  focus:outline-0',
             )}
             type="date"
+            onClick={() => {
+              endRef.current.showPicker();
+            }}
             leftIcon={
-              <button onClick={() => dateRef?.current?.focus()}>
+              <button onClick={() => endRef?.current?.showPicker()}>
                 <CalendarDaysIcon className="h-5 w-5 text-accent-primary" />
               </button>
             }
