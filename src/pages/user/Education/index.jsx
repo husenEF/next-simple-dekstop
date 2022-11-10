@@ -7,6 +7,7 @@ import InputGroup from '../../../components/Input/InputGroup';
 import BoxBorder from '../../../components/Layout/box';
 
 import style from '../user.module.scss';
+import { useRef } from 'react';
 
 const educationList = [
   {
@@ -37,6 +38,7 @@ const educationList = [
 ];
 
 const EducationTab = () => {
+  let graduationRef = useRef(null);
   return (
     <BoxBorder>
       <div className="flex flex-row mb-8">
@@ -65,10 +67,13 @@ const EducationTab = () => {
             className={classNames(
               style.inputDate,
               'border-0 rounded-none border-b',
+              'focus:border-0 focus:border-b  focus:outline-0',
             )}
+            ref={(ref) => (graduationRef = ref)}
+            onClick={() => graduationRef?.showPicker()}
             type="date"
             leftIcon={
-              <button onClick={() => dateRef?.current?.focus()}>
+              <button onClick={() => graduationRef?.showPicker()}>
                 <CalendarDaysIcon className="h-5 w-5 text-accent-primary" />
               </button>
             }
