@@ -1,24 +1,12 @@
-import { PlusIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { PlusIcon } from '@heroicons/react/24/solid';
 
 import BoxBorder from '../../../components/Layout/box';
-import Logo from '../../../components/Icons/Logo';
-//https://jsonplaceholder.typicode.com/photos
-const GalleryTab = () => {
-  const [photos, setPhotos] = useState([]);
+import { useGallery } from '../../../hooks/useGallery';
 
-  const fetchPhoto = async () => {
-    await fetch('https://picsum.photos/v2/list')
-      .then((res) => res.json())
-      .then((result) => {
-        // logger.info({ result });
-        setPhotos(result);
-      });
-  };
-  useEffect(() => {
-    fetchPhoto();
-  }, []);
+const GalleryTab = () => {
+  const { data, isError, isLoading, error } = useGallery();
+
   return (
     <BoxBorder>
       <div className="flex flex-row mb-8">
@@ -33,24 +21,27 @@ const GalleryTab = () => {
         </button>
       </div>
       <div className="gallery lg:grid-cols-3 grid-cols-2 grid gap-4 relative">
-        {photos.map((photo) => (
-          <div
-            key={photo.id}
-            className="block rounded-md aspect-square overflow-hidden relative">
-            <Image
-              src={photo.download_url}
-              alt={photo.author}
-              fill
-              className="w-full max-w-full"
-              objectFit="cover"
-              quality={100}
-              placeholder="blur"
-              blurDataURL={
-                'https://dummyimage.com/300x300/000/fff&text=placeholder'
-              }
-            />
-          </div>
-        ))}
+        {!isError &&
+          data?.map((photo) => (
+            <div
+              key={photo.id}
+              className="block rounded-md aspect-square overflow-hidden relative">
+              <Image
+                src={photo.download_url}
+                alt={photo.author}
+                fill={true}
+                className="w-full max-w-full"
+                quality={100}
+                placeholder="blur"
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
+                blurDataURL={
+                  'https://dummyimage.com/300x300/000/fff&text=placeholder'
+                }
+              />
+            </div>
+          ))}
       </div>
     </BoxBorder>
   );
