@@ -7,11 +7,12 @@ import {
 import AutoComplete from '../../../components/Select/AutoComplete';
 import Input from '../../../components/Input/input';
 import InputGroup from '../../../components/Input/InputGroup';
+import BoxBorder from '../../../components/Layout/box';
 
 const RegistrationView = ({ data, event, onSave }) => {
   return (
     <>
-      <div className="register-form border border-basic-stroke rounded-lg p-8">
+      <BoxBorder>
         <h2 className="text-basic-primary text-lg font-poppins font-semibold">
           Create New Account
         </h2>
@@ -23,7 +24,9 @@ const RegistrationView = ({ data, event, onSave }) => {
             Account Detail
           </h2>
           <label class="block">
-            <span class="text-basic-primary font-[13px] mb-2">Select Country</span>
+            <span class="text-basic-primary font-[13px] mb-2">
+              Select Country
+            </span>
             <AutoComplete
               data={data?.countryList}
               value={data?.selected}
@@ -31,7 +34,9 @@ const RegistrationView = ({ data, event, onSave }) => {
             />
           </label>
           <label className="block">
-            <span class="text-basic-primary font-[13px] mb-2">Phone Number</span>
+            <span class="text-basic-primary font-[13px] mb-2">
+              Phone Number
+            </span>
             <Input
               type="tel"
               onChange={(e) => event?.handleChange('phone', e.target.value)}
@@ -57,14 +62,14 @@ const RegistrationView = ({ data, event, onSave }) => {
             />
           </label>
         </div>
-      </div>
+      </BoxBorder>
       <div className="link mt-8">
         <a href="" className="flex flex-row text-accent-secondary text-lg">
           <CloudArrowDownIcon className="h-6 w-6 text-accent-secondary mr-2" />{' '}
           Terms and conditions
         </a>
       </div>
-      <div className="flex mt-8">
+      <div className="flex mt-8 flex-col lg:flex-row">
         <button
           onClick={event?.handleReset}
           className="rounded-md border-basic-stroke border px-8 py-2 text-basic-primary"
@@ -73,7 +78,7 @@ const RegistrationView = ({ data, event, onSave }) => {
         </button>
         <button
           onClick={() => onSave(data?.form)}
-          className="rounded-md ml-3 bg-basic-primary border-basic-primary border px-8 py-2 text-bg-primary"
+          className="rounded-md lg:ml-3 mt-3 lg:mt-0 bg-basic-primary border-basic-primary border px-8 py-2 text-bg-primary"
           type="button">
           Register
         </button>

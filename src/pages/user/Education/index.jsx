@@ -80,14 +80,14 @@ const EducationTab = () => {
           />
         </label>
 
-        <div className="flex mt-8">
+        <div className="flex mt-8 lg:flex-row flex-col">
           <button
             className="rounded-md border-basic-stroke border px-8 py-2 text-basic-primary"
             type="reset">
             Discard
           </button>
           <button
-            className="rounded-md ml-3 bg-basic-primary border-basic-primary border px-8 py-2 text-bg-primary"
+            className="rounded-md lg:ml-3 lg:mt-0 mt-4  bg-basic-primary border-basic-primary border px-8 py-2 text-bg-primary"
             type="button">
             Add Education
           </button>
