@@ -3,8 +3,10 @@ import Link from 'next/link';
 import Logo from '../Icons/Logo';
 import Alert from '../Alert';
 import classNames from '../../utils/classNames';
+import { useGlobalAlertConsumer } from '../../context/globalAlert';
 
 const MainLayout = ({ children, rightContainer }) => {
+  const { alert, removeAlert } = useGlobalAlertConsumer();
   return (
     <div className="flex lg:flex-row flex-col lg:h-screen">
       <div className="bg-bg-primary lg:p-12 p-3 lg:w-2/6 w-full">
@@ -14,7 +16,7 @@ const MainLayout = ({ children, rightContainer }) => {
             COINPRIVY
           </Link>
         </h1>
-        <div className="mt-14 lg:px-7 px-2" >
+        <div className="mt-14 lg:px-7 px-2">
           <h2 className="text-basic-primary text-[32px] font-semibold">
             Welcome to{'\r\n'}Coinprivy
           </h2>
@@ -22,7 +24,15 @@ const MainLayout = ({ children, rightContainer }) => {
             is a secure platform that makes it easy to buy, sell, and store
             cryptocurrency like Bitcoin, Ethereum, and more. Based in the USA
           </p>
-          <Alert className="mr-2" />
+          {alert?.message !== '' && (
+            <Alert
+              className="mr-2"
+              message={alert?.message}
+              type={alert?.status}
+              title={alert?.title}
+              onClose={removeAlert}
+            />
+          )}
         </div>
       </div>
       <div

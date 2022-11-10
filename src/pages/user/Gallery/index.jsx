@@ -3,10 +3,25 @@ import { PlusIcon } from '@heroicons/react/24/solid';
 
 import BoxBorder from '../../../components/Layout/box';
 import { useGallery } from '../../../hooks/useGallery';
+import GlobalAlertContext, {
+  GlobalAlertConsumer,
+} from '../../../context/globalAlert';
+import { useContext, useEffect } from 'react';
+import { logger } from '../../../utils/logger';
 
 const GalleryTab = () => {
   const { data, isError, isLoading, error } = useGallery();
-
+  const { setAlert } = useContext(GlobalAlertContext);
+  useEffect(() => {
+    if (isError) {
+      logger.error({ error });
+      setAlert({
+        message: error.message,
+        status: 'error',
+        title: 'Invalid data',
+      });
+    }
+  }, [isError, error, setAlert]);
   return (
     <BoxBorder>
       <div className="flex flex-row mb-8">
