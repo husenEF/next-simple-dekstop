@@ -84,6 +84,18 @@ const InformationTab = () => {
             <span class="text-basic-primary font-poppins font-[13px]">Bio</span>
             <TextArea className="font-poppins h-28" value="Wong Fei Hung" />
           </label>
+          <div className="flex mt-8 flex-col lg:flex-row">
+            <button
+              className="rounded-md lg:w-auto w-full border-basic-stroke border px-8 py-2  mb-4 lg:mb-0 text-basic-primary"
+              type="reset">
+              Discard
+            </button>
+            <button
+              className="rounded-md lg:ml-3 bg-basic-primary border-basic-primary border px-8 py-2 text-bg-primary"
+              type="button">
+              Update
+            </button>
+          </div>
         </div>
         <div className="">
           <h2 className="text-lg text-basic-primary font-semibold mb-3">
