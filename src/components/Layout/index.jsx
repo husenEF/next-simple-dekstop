@@ -10,7 +10,7 @@ const MainLayout = ({ children, rightContainer }) => {
   return (
     <div className="flex lg:flex-row flex-col lg:h-screen">
       <div className="bg-bg-primary lg:p-12 p-3 lg:w-2/6 w-full">
-        <h1 className="">
+        <h1 data-testid="logo">
           <Link href="/" className="text-basic-primary flex">
             <Logo className="mr-2" />
             COINPRIVY
