@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
 
 import { useRegister } from '../../../hooks/useRegisters';
 import countryCode from '../../../data/countryCode';
@@ -13,6 +12,7 @@ const useRegistationModule = () => {
     newData.id = e.code;
     return newData;
   });
+  
   const [selected, setSelected] = useState(
     countryList.find((e) => e.code === 'ID'),
   );

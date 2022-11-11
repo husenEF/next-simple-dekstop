@@ -19,12 +19,12 @@ const RegistrationView = ({ data, event, onSave }) => {
         <p className="text-basic-secondary text-xs">
           Before you can invest here, please create new account
         </p>
-        <div class="grid grid-cols-1 gap-6 mt-8">
+        <div className="grid grid-cols-1 gap-6 mt-8">
           <h2 className="text-basic-primary text-lg font-poppins font-semibold">
             Account Detail
           </h2>
-          <label class="block">
-            <span class="text-basic-primary font-[13px] mb-2">
+          <label className="block">
+            <span className="text-basic-primary font-[13px] mb-2">
               Select Country
             </span>
             <AutoComplete
@@ -34,22 +34,29 @@ const RegistrationView = ({ data, event, onSave }) => {
             />
           </label>
           <label className="block">
-            <span class="text-basic-primary font-[13px] mb-2">
+            <span className="text-basic-primary font-[13px] mb-2">
               Phone Number
             </span>
             <Input
+              name="userPhone"
               type="tel"
               onChange={(e) => event?.handleChange('phone', e.target.value)}
               value={data?.form?.phone}
             />
           </label>
           <label className="block">
-            <span class="text-basic-primary font-[13px] mb-2">Password</span>
+            <span className="text-basic-primary font-[13px] mb-2">
+              Password
+            </span>
             <InputGroup
+              name="password"
+              data-testid="input-pass"
               onChange={(e) => event?.handleChange('password', e.target.value)}
               value={data?.form?.password}
               rightIcon={
                 <button
+                  className="btn-eye"
+                  data-testid="toogle-pass"
                   onClick={() => event?.togglePassword(!data?.isShowPassword)}>
                   {data?.isShowPassword ? (
                     <EyeIcon className="h-5 w-5 text-accent-primary" />
